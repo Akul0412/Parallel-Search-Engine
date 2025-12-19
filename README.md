@@ -73,3 +73,4 @@ mpirun --hostfile hosts.txt -np 4 ./build/string_match mpi documents/wikitext_me
 
 1. Some inputs might not work as those words might not be present in any files. Try generic words such as 'happy', 'game',.. etc.
 2. You can use the website for real-time experimentation using different core thread combos.
+3. For the structure we have build folder - which has the executables, the src folder which has the actual code, the web folder which has the front end implementation and server.py which starts the website, document folder which has the test dats.
