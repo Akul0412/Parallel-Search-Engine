@@ -9,6 +9,8 @@ A parallel computing project
 ```bash
 python3 -m venv venv
 source venv/bin/activate 
+
+MAKE SURE TO CHANGE THE "hosts.txt" with the plate machine that you are using for example : csel-plate04.cselabs.umn.edu slots=64
 ```
 
 ### 2. Install Dependencies
@@ -30,15 +32,8 @@ make MPI=1
 python3 server.py
 ```
 
-Then open `http://localhost:5000`
+Then open `http://localhost:8080`
 
-### 5. Use quick_test.sh for Local Testing
-
-```bash
-
-./quick_test.sh "computer"
-./quick_test.sh "algorithm"
-```
 
 
 ### Web Interface
@@ -47,6 +42,7 @@ Then open `http://localhost:5000`
 2. Open browser to `http://localhost:8080`
 3. Configure MPI processes and OpenMP threads
 4. Enter search query and compare serial vs parallel performance
+5. Again make sure you have the correct plate machine in hosts.txt!
 
 ### Command Line
 
@@ -56,16 +52,6 @@ Then open `http://localhost:5000`
 
 # run this for parallel execution
 mpirun --hostfile hosts.txt -np 4 ./build/string_match mpi documents/wikitext_metadata.txt "pattern"
-```
-
-### Testing
-
-```bash
-# "default word 'the' " 
-./quick_test.sh
-
-# Add any word here 
-./quick_test.sh "your word"
 ```
 
 
