@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Search Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Parallel Mini Search Engine</h1>
+            <p>Compare sequential vs parallel execution performance with configurable MPI/OpenMP</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Enter search query..." autocomplete="off">
+            <button id="searchButton">Search</button>
+        </div>
+
+        <div class="config-panel">
+            <h3>Parallel Configuration</h3>
+            <div class="config-controls">
+                <div class="control-group">
+                    <label for="mpiProcesses">MPI Processes (Cores):</label>
+                    <input type="number" id="mpiProcesses" min="1" max="64" value="2" step="1">
+                    <span class="control-hint">More processes = more distributed parallelism</span>
+                </div>
+                <div class="control-group">
+                    <label for="ompThreads">OpenMP Threads per Process:</label>
+                    <input type="number" id="ompThreads" min="1" max="32" value="4" step="1">
+                    <span class="control-hint">More threads = more shared-memory parallelism</span>
+                </div>
+            </div>
+            <div class="config-summary">
+                <strong>Total Workers:</strong> <span id="totalWorkers">8</span> (Processes × Threads)
+            </div>
+        </div>
+
+        <div class="results-container">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Parallel</h2>
+                    <span class="time" id="parallelTime">-- ms</span>
+                </div>
+                <div class="results" id="parallelResults">
+                    <p class="placeholder">Results will appear here</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Sequential</h2>
+                    <span class="time" id="sequentialTime">-- ms</span>
+                </div>
+                <div class="results" id="sequentialResults">
+                    <p class="placeholder">Results will appear here</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="speedup" id="speedupContainer" style="display: none;">
+            <span>Speedup: </span>
+            <span id="speedupValue">--</span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
